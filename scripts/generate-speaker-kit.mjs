@@ -1,0 +1,65 @@
+// Generate a simple mock speaker kit as an HTML file
+// In production, replace with a professionally designed PDF
+import { writeFileSync } from "fs";
+
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Oke Okaro — Speaker Kit (Draft)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #000; color: #fff; padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+  .draft { background: #6366f1; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-bottom: 2rem; }
+  h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 2rem 0 1rem; color: #a5b4fc; }
+  p { color: #a1a1aa; line-height: 1.7; margin-bottom: 1rem; }
+  ul { list-style: none; padding: 0; }
+  li { padding: 0.5rem 0; color: #d4d4d8; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  li::before { content: "\\2192  "; color: #6366f1; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent); margin: 2rem 0; }
+  .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #71717a; }
+</style>
+</head>
+<body>
+  <span class="draft">DRAFT — Final version in production</span>
+  <h1>Oke Okaro</h1>
+  <p style="color:#a5b4fc;font-weight:500;margin-bottom:2rem;">Keynote Speaker &amp; Strategic Advisor</p>
+  <div class="divider"></div>
+  <h2>About</h2>
+  <p>Oke Okaro helps leadership teams move from AI pilots to enterprise adoption through clear frameworks, measurable outcomes, and real-world execution experience across Reuters, Disney, Bloomberg, ESPN, Verizon, and Apple.</p>
+  <h2>Signature Keynote</h2>
+  <p><strong style="color:#fff;">The AI Adoption Gap: Why Most Companies Stall at Pilot</strong></p>
+  <p>A practical framework for enterprise AI adoption that addresses the real blockers — organizational design, incentive alignment, and execution architecture — not just technology.</p>
+  <h2>Available Formats</h2>
+  <ul>
+    <li>Keynote Presentation (45–60 min)</li>
+    <li>Fireside Chat / Moderated Q&amp;A (30–45 min)</li>
+    <li>Interactive Workshop (90–120 min)</li>
+  </ul>
+  <h2>Topics</h2>
+  <ul>
+    <li>Enterprise AI Adoption at Scale</li>
+    <li>Digital Transformation: Systems Over Slogans</li>
+    <li>Product Strategy &amp; Organizational Architecture</li>
+    <li>Leading Through Change &amp; Reinvention</li>
+  </ul>
+  <h2>Technical Requirements</h2>
+  <ul>
+    <li>Wireless lavalier or handheld microphone</li>
+    <li>HDMI connection for presentation slides</li>
+    <li>Confidence monitor (preferred)</li>
+    <li>Stage lighting appropriate for video recording</li>
+  </ul>
+  <h2>Contact</h2>
+  <p>For booking inquiries, visit <strong style="color:#fff;">okeokaro.com</strong> or email directly.</p>
+  <div class="footer">
+    <p>This is a draft speaker kit. The final version will include professional photography, full bio, and detailed case studies.</p>
+    <p style="margin-top:0.5rem;">&copy; 2026 Oke Okaro. All rights reserved.</p>
+  </div>
+</body>
+</html>`;
+
+writeFileSync("public/Oke-Okaro-Speaker-Kit.pdf", html);
+console.log("Mock speaker kit created at public/Oke-Okaro-Speaker-Kit.pdf");

@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/cn";
 import { NAV_ITEMS } from "@/data/nav";
 import { SITE_NAME } from "@/data/site";
+import { useActiveSection } from "@/lib/useActiveSection";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -51,15 +53,27 @@ export function Header() {
           className="hidden md:flex items-center gap-8"
           aria-label="Main navigation"
         >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-zinc-400 hover:text-white transition-colors duration-200"
-            >
-              {item.label}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = !item.external && activeSection && item.href === `#${activeSection}`;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={cn(
+                  "text-sm transition-colors duration-200",
+                  isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                )}
+              >
+                {item.label}
+                {item.external && (
+                  <svg className="inline-block ml-1 w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5-6H18m0 0v4.5m0-4.5L10.5 13.5" />
+                  </svg>
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Desktop CTAs */}
@@ -104,7 +118,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-xl transition-all duration-300 z-40",
+          "md:hidden fixed inset-0 top-16 bg-black backdrop-blur-xl transition-all duration-300 z-40",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -116,9 +130,15 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
+              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="text-lg text-zinc-300 hover:text-white transition-colors"
             >
               {item.label}
+              {item.external && (
+                <svg className="inline-block ml-1.5 w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5-6H18m0 0v4.5m0-4.5L10.5 13.5" />
+                </svg>
+              )}
             </a>
           ))}
           <div className="flex flex-col gap-3 w-full max-w-xs mt-8">

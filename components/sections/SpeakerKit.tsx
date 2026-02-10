@@ -24,7 +24,7 @@ export function SpeakerKit() {
             {SPEAKER_KIT.description}
           </p>
 
-          <PrimaryButton href="#" className="mb-10">
+          <PrimaryButton href="/Oke-Okaro-Speaker-Kit.pdf" className="mb-10">
             Download speaker kit
           </PrimaryButton>
 

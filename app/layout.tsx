@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Oke Okaro | Keynote Speaker & Strategic Advisor",
@@ -18,12 +13,14 @@ export const metadata: Metadata = {
       "Keynotes, fireside chats, and workshops on enterprise AI adoption and product strategy.",
     type: "website",
     locale: "en_US",
+    images: ["/images/oke-headshot.avif"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Oke Okaro | Keynote Speaker & Strategic Advisor",
     description:
       "Keynotes, fireside chats, and workshops on enterprise AI adoption and product strategy.",
+    images: ["/images/oke-headshot.avif"],
   },
   robots: "index, follow",
 };
@@ -34,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}>
       <body className="bg-black text-white font-sans antialiased">
         <a
           href="#main-content"

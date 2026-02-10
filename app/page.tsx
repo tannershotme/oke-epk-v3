@@ -5,6 +5,7 @@ import { SignatureKeynote } from "@/components/sections/SignatureKeynote";
 import { TalksGrid } from "@/components/sections/TalksGrid";
 import { EngagementFormats } from "@/components/sections/EngagementFormats";
 import { ProofOfImpact } from "@/components/sections/ProofOfImpact";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { About } from "@/components/sections/About";
 import { SpeakerKit } from "@/components/sections/SpeakerKit";
 import { FAQ } from "@/components/sections/FAQ";
@@ -23,6 +24,7 @@ export default function Home() {
         <TalksGrid />
         <EngagementFormats />
         <ProofOfImpact />
+        <Testimonials />
         <About />
         <SpeakerKit />
         <FAQ />

@@ -2,6 +2,7 @@ import { SIGNATURE_KEYNOTE } from "@/data/talks";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Chip } from "@/components/ui/Chip";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export function SignatureKeynote() {
   const talk = SIGNATURE_KEYNOTE;
@@ -38,7 +39,7 @@ export function SignatureKeynote() {
             </p>
 
             {talk.outcomes && (
-              <div>
+              <div className="mb-8">
                 <p className="text-sm font-medium text-zinc-300 mb-3">
                   What your audience will take away:
                 </p>
@@ -54,6 +55,10 @@ export function SignatureKeynote() {
                 </ul>
               </div>
             )}
+
+            <PrimaryButton href="#booking">
+              Book this keynote →
+            </PrimaryButton>
           </div>
         </GlassCard>
       </div>
