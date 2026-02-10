@@ -2,6 +2,7 @@ import { TALKS } from "@/data/talks";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Chip } from "@/components/ui/Chip";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SecondaryButton } from "@/components/ui/SecondaryButton";
 
 export function TalksGrid() {
   return (
@@ -47,6 +48,12 @@ export function TalksGrid() {
               </p>
             </GlassCard>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-12" data-animate>
+          <SecondaryButton href="#booking">
+            Explore booking →
+          </SecondaryButton>
         </div>
       </div>
     </section>

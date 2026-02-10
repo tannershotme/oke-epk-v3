@@ -1,26 +1,34 @@
+import Image from "next/image";
 import { CREDIBILITY_LOGOS } from "@/data/logos";
 
 export function CredibilityStrip() {
   return (
-    <section className="py-16 border-y border-white/5" data-animate>
+    <section className="py-16 lg:py-20 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-sm text-zinc-500 text-center mb-10">
-          Experience across global product and media organizations, including:
+        <p className="text-sm text-zinc-500 text-center mb-10 tracking-wide uppercase">
+          Trusted by teams at
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+
+        <div
+          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 lg:gap-x-16"
+          data-animate
+        >
           {CREDIBILITY_LOGOS.map((logo) => (
-            <span
+            <div
               key={logo.name}
-              className="text-lg font-semibold text-zinc-600 tracking-tight hover:text-zinc-400 transition-colors duration-300"
-              aria-label={logo.alt}
+              className="relative h-6 md:h-7 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300 grayscale invert"
             >
-              {logo.name}
-            </span>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={28}
+                width={120}
+                className="h-full w-auto object-contain"
+                unoptimized
+              />
+            </div>
           ))}
         </div>
-        <p className="text-[10px] text-zinc-700 text-center mt-8">
-          Logos are trademarks of their respective owners.
-        </p>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function ProofOfImpact() {
   return (
-    <section id="impact" className="py-24 lg:py-32">
+    <section id="impact" className="py-24 lg:py-32 section-elevated">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="Results"
@@ -20,7 +20,7 @@ export function ProofOfImpact() {
               <h3 className="text-sm font-medium text-zinc-300 mb-2">
                 {m.title}
               </h3>
-              <p className="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-4">
+              <p className="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-4 font-mono">
                 {m.metric}
               </p>
               <p className="text-sm text-zinc-500 leading-relaxed">
@@ -33,3 +33,4 @@ export function ProofOfImpact() {
     </section>
   );
 }
+
